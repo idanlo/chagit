@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic';
 
 async function getShifts() {
     try {
+        console.error('URL', JSON.stringify(process.env));
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_APP_URL}/api/shifts`,
             {
