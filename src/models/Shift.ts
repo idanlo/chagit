@@ -32,4 +32,6 @@ const shiftSchema = new Schema(
     }
 );
 
+shiftSchema.index({ date: -1 }); // Add index for date field
+
 export const Shift = models.Shift || model('Shift', shiftSchema);
