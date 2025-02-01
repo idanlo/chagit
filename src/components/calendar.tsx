@@ -6,21 +6,13 @@ import { CalendarGrid } from './calendar-grid';
 import { WeeklyView } from './weekly-view';
 import { Button } from '@/components/ui/button';
 import moment from 'moment';
+import { Shift } from '@/lib/types';
 
 type CalendarView = 'month' | 'week';
 
 moment.locale('he');
 
-export interface Event {
-    id: string;
-    title: string;
-    date: string;
-    startTime: string;
-    endTime: string;
-    wage: number;
-}
-
-export function Calendar({ events }: { events: any }) {
+export function Calendar({ events }: { events: Shift[] }) {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [view, setView] = useState<CalendarView>('month');
 

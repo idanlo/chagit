@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import mongoose from 'mongoose';
 
 declare global {

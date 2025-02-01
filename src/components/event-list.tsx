@@ -5,7 +5,6 @@ import {
     CardContent,
     CardTitle,
     CardDescription,
-    CardFooter,
 } from '@/components/ui/card';
 import moment from 'moment';
 
