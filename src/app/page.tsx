@@ -1,31 +1,13 @@
 // import Image from "next/image";
 import { Calendar } from '@/components/calendar';
+import { connectDB, getShifts } from '@/lib/mongodb';
 
 export const dynamic = 'force-dynamic';
 
-async function getShifts() {
-    try {
-        console.error('URL', JSON.stringify(process.env));
-        const res = await fetch(
-            `${process.env.NEXT_PUBLIC_APP_URL}/api/shifts`,
-            {
-                cache: 'no-store',
-            }
-        );
-
-        if (!res.ok) {
-            throw new Error('Failed to fetch shifts');
-        }
-
-        return res.json();
-    } catch (error) {
-        console.error('Error fetching shifts:', error);
-        return [];
-    }
-}
-
 export default async function Home() {
-    const events = await getShifts();
+    await connectDB();
+    const shifts = await getShifts();
+    const events = JSON.parse(JSON.stringify(shifts));
 
     return (
         <div>
