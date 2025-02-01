@@ -24,6 +24,8 @@ export async function connectDB() {
             bufferCommands: false,
         };
 
+        // eslint-disable-next-line
+        // @ts-ignore
         cached.promise = mongoose
             .connect(MONGODB_URI!, opts)
             .then((mongoose) => {
