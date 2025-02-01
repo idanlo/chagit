@@ -9,16 +9,16 @@ interface CalendarHeaderProps {
     view: 'month' | 'week';
 }
 
-const monthNames = Array.from({ length: 12 }, (_, i) =>
-    moment().locale('he').month(i).format('MMMM')
-);
-
 export function CalendarHeader({
     currentDate,
     onNextPeriod,
     onPreviousPeriod,
     view,
 }: CalendarHeaderProps) {
+    const monthNames = Array.from({ length: 12 }, (_, i) =>
+        moment().locale('he').month(i).format('MMMM')
+    );
+
     const formatWeekRange = (date: Date) => {
         const start = new Date(
             date.getFullYear(),
